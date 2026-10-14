@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ggpt"
+version = "0.1.0"
+description = "A small Georgian decoder-only language model trained from scratch"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "datasets>=4.0,<5",
+    "tokenizers>=0.21,<1",
+    "numpy>=1.26,<3",
+    "pandas>=2.2,<3",
+    "pyarrow>=17,<30",
+    "matplotlib>=3.8,<4",
+    "tqdm>=4.66,<5",
+    "regex>=2024.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8,<10",
+    "ruff>=0.12,<1",
+    "ipykernel>=6,<8",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
