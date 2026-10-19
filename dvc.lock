@@ -67,6 +67,126 @@ stages:
     outs:
     - path: artifacts/tokenizer/bpe_pilot_8192
       hash: md5
-      md5: 46e3836a54b7b1293fce7f8a66190d3a.dir
-      size: 925932
+      md5: e0594c81217a1c7b8423808b810a599b.dir
+      size: 925933
+      nfiles: 2
+  bpe_scale_30k:
+    cmd: PYTHONPATH=src python scripts/tokenizer/train_bpe.py --n-docs 30000 
+      --seed 2718 --vocab-size 8192 --output-dir 
+      artifacts/tokenizer/bpe_30k_8192
+    deps:
+    - path: data/interim/tokenizer/bpe_sample
+      hash: md5
+      md5: 378a7ccfc4d406b4aa884dcbf23d815c.dir
+      size: 182057639
+      nfiles: 2
+    - path: scripts/tokenizer/train_bpe.py
+      hash: md5
+      md5: 876776eaf6a2e19f9d0f55cd6f806dca
+      size: 8495
+    - path: src/ggpt/utils/logger.py
+      hash: md5
+      md5: 6373b37dc984da2592bf5582fccad8ef
+      size: 2962
+    outs:
+    - path: artifacts/tokenizer/bpe_30k_8192
+      hash: md5
+      md5: 34ae748bfceb5b546f2a0e64093e3e84.dir
+      size: 925807
+      nfiles: 2
+  bpe_30k_16384:
+    cmd: PYTHONPATH=src python scripts/tokenizer/train_bpe.py --n-docs 30000 
+      --seed 2718 --vocab-size 16384 --output-dir 
+      artifacts/tokenizer/bpe_30k_16384
+    deps:
+    - path: data/interim/tokenizer/bpe_sample
+      hash: md5
+      md5: 378a7ccfc4d406b4aa884dcbf23d815c.dir
+      size: 182057639
+      nfiles: 2
+    - path: scripts/tokenizer/train_bpe.py
+      hash: md5
+      md5: 876776eaf6a2e19f9d0f55cd6f806dca
+      size: 8495
+    - path: src/ggpt/utils/logger.py
+      hash: md5
+      md5: 6373b37dc984da2592bf5582fccad8ef
+      size: 2962
+    outs:
+    - path: artifacts/tokenizer/bpe_30k_16384
+      hash: md5
+      md5: d6badf236f0208729eff2590a5e3121e.dir
+      size: 2010110
+      nfiles: 2
+  bpe_100k_8192:
+    cmd: PYTHONPATH=src python scripts/tokenizer/train_bpe.py --n-docs 100000 
+      --seed 2718 --vocab-size 8192 --output-dir 
+      artifacts/tokenizer/bpe_100k_8192
+    deps:
+    - path: data/interim/tokenizer/bpe_sample
+      hash: md5
+      md5: 378a7ccfc4d406b4aa884dcbf23d815c.dir
+      size: 182057639
+      nfiles: 2
+    - path: scripts/tokenizer/train_bpe.py
+      hash: md5
+      md5: 876776eaf6a2e19f9d0f55cd6f806dca
+      size: 8495
+    - path: src/ggpt/utils/logger.py
+      hash: md5
+      md5: 6373b37dc984da2592bf5582fccad8ef
+      size: 2962
+    outs:
+    - path: artifacts/tokenizer/bpe_100k_8192
+      hash: md5
+      md5: 34d202ca4b1914511332a3293448e6c7.dir
+      size: 924154
+      nfiles: 2
+  bpe_100k_16384:
+    cmd: PYTHONPATH=src python scripts/tokenizer/train_bpe.py --n-docs 100000 
+      --seed 2718 --vocab-size 16384 --output-dir 
+      artifacts/tokenizer/bpe_100k_16384
+    deps:
+    - path: data/interim/tokenizer/bpe_sample
+      hash: md5
+      md5: 378a7ccfc4d406b4aa884dcbf23d815c.dir
+      size: 182057639
+      nfiles: 2
+    - path: scripts/tokenizer/train_bpe.py
+      hash: md5
+      md5: 876776eaf6a2e19f9d0f55cd6f806dca
+      size: 8495
+    - path: src/ggpt/utils/logger.py
+      hash: md5
+      md5: 6373b37dc984da2592bf5582fccad8ef
+      size: 2962
+    outs:
+    - path: artifacts/tokenizer/bpe_100k_16384
+      hash: md5
+      md5: 9a738bc73d88f509b9b264f9992e2f03.dir
+      size: 2006711
+      nfiles: 2
+  bpe_10k_16384:
+    cmd: PYTHONPATH=src python scripts/tokenizer/train_bpe.py --n-docs 10000 
+      --seed 2718 --vocab-size 16384 --output-dir 
+      artifacts/tokenizer/bpe_10k_16384
+    deps:
+    - path: data/interim/tokenizer/bpe_sample
+      hash: md5
+      md5: 378a7ccfc4d406b4aa884dcbf23d815c.dir
+      size: 182057639
+      nfiles: 2
+    - path: scripts/tokenizer/train_bpe.py
+      hash: md5
+      md5: 876776eaf6a2e19f9d0f55cd6f806dca
+      size: 8495
+    - path: src/ggpt/utils/logger.py
+      hash: md5
+      md5: 6373b37dc984da2592bf5582fccad8ef
+      size: 2962
+    outs:
+    - path: artifacts/tokenizer/bpe_10k_16384
+      hash: md5
+      md5: 1d25fc46db2b91baf06a05cd9ed67fa8.dir
+      size: 2007987
       nfiles: 2

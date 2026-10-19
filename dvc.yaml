@@ -1,3 +1,4 @@
+
 stages:
   split:
     cmd: python scripts/data/split_fineweb2.py
@@ -34,3 +35,73 @@ stages:
       - data/interim/tokenizer/bpe_sample
     outs:
       - artifacts/tokenizer/bpe_pilot_8192
+
+  bpe_10k_16384:
+    cmd: >-
+      PYTHONPATH=src python scripts/tokenizer/train_bpe.py
+      --n-docs 10000
+      --seed 2718
+      --vocab-size 16384
+      --output-dir artifacts/tokenizer/bpe_10k_16384
+    deps:
+      - scripts/tokenizer/train_bpe.py
+      - src/ggpt/utils/logger.py
+      - data/interim/tokenizer/bpe_sample
+    outs:
+      - artifacts/tokenizer/bpe_10k_16384
+
+  bpe_scale_30k:
+    cmd: >-
+      PYTHONPATH=src python scripts/tokenizer/train_bpe.py
+      --n-docs 30000
+      --seed 2718
+      --vocab-size 8192
+      --output-dir artifacts/tokenizer/bpe_30k_8192
+    deps:
+      - scripts/tokenizer/train_bpe.py
+      - src/ggpt/utils/logger.py
+      - data/interim/tokenizer/bpe_sample
+    outs:
+      - artifacts/tokenizer/bpe_30k_8192
+
+  bpe_30k_16384:
+    cmd: >-
+      PYTHONPATH=src python scripts/tokenizer/train_bpe.py
+      --n-docs 30000
+      --seed 2718
+      --vocab-size 16384
+      --output-dir artifacts/tokenizer/bpe_30k_16384
+    deps:
+      - scripts/tokenizer/train_bpe.py
+      - src/ggpt/utils/logger.py
+      - data/interim/tokenizer/bpe_sample
+    outs:
+      - artifacts/tokenizer/bpe_30k_16384
+
+  bpe_100k_8192:
+    cmd: >-
+      PYTHONPATH=src python scripts/tokenizer/train_bpe.py
+      --n-docs 100000
+      --seed 2718
+      --vocab-size 8192
+      --output-dir artifacts/tokenizer/bpe_100k_8192
+    deps:
+      - scripts/tokenizer/train_bpe.py
+      - src/ggpt/utils/logger.py
+      - data/interim/tokenizer/bpe_sample
+    outs:
+      - artifacts/tokenizer/bpe_100k_8192
+
+  bpe_100k_16384:
+    cmd: >-
+      PYTHONPATH=src python scripts/tokenizer/train_bpe.py
+      --n-docs 100000
+      --seed 2718
+      --vocab-size 16384
+      --output-dir artifacts/tokenizer/bpe_100k_16384
+    deps:
+      - scripts/tokenizer/train_bpe.py
+      - src/ggpt/utils/logger.py
+      - data/interim/tokenizer/bpe_sample
+    outs:
+      - artifacts/tokenizer/bpe_100k_16384
