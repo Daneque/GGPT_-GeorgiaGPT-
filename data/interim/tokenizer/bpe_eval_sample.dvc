@@ -1,0 +1,6 @@
+outs:
+- md5: 9ca0df167fa92424595e8198e7fffddf.dir
+  size: 3685394
+  nfiles: 2
+  hash: md5
+  path: bpe_eval_sample
