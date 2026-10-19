@@ -23,12 +23,11 @@ htmlcov/
 
 # Data (future DVC tracking)
 
-/data/interim/
 /data/processed/
 /data/samples/
 
-# Generated model artifacts
-/artifacts/
+/data/interim/eda/
+/runs/logs/
 
 # Experiment logs
 /runs/

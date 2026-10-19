@@ -6,3 +6,31 @@ stages:
       - data/raw/fineweb2
     outs:
       - data/splits/fineweb2/kat_Geor
+
+  bpe_sample:
+    cmd: >-
+      PYTHONPATH=src python scripts/tokenizer/prepare_sample.py
+      --n-docs 100000
+      --seed 1729
+      --batch-size 4096
+    deps:
+      - scripts/tokenizer/prepare_sample.py
+      - src/ggpt/utils/logger.py
+      - data/raw/fineweb2
+      - data/splits/fineweb2/kat_Geor
+    outs:
+      - data/interim/tokenizer/bpe_sample
+
+  bpe_pilot:
+    cmd: >-
+      PYTHONPATH=src python scripts/tokenizer/train_bpe.py
+      --n-docs 10000
+      --seed 2718
+      --vocab-size 8192
+      --output-dir artifacts/tokenizer/bpe_pilot_8192
+    deps:
+      - scripts/tokenizer/train_bpe.py
+      - src/ggpt/utils/logger.py
+      - data/interim/tokenizer/bpe_sample
+    outs:
+      - artifacts/tokenizer/bpe_pilot_8192
