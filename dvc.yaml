@@ -1,0 +1,8 @@
+stages:
+  split:
+    cmd: python scripts/data/split_fineweb2.py
+    deps:
+      - scripts/data/split_fineweb2.py
+      - data/raw/fineweb2
+    outs:
+      - data/splits/fineweb2/kat_Geor

@@ -22,7 +22,7 @@ htmlcov/
 .ipynb_checkpoints/
 
 # Data (future DVC tracking)
-/data/raw/
+
 /data/interim/
 /data/processed/
 /data/samples/
@@ -42,3 +42,6 @@ htmlcov/
 .idea/
 .DS_Store
 Thumbs.db
+
+
+/reports/

@@ -1,0 +1,20 @@
+schema: '2.0'
+stages:
+  split:
+    cmd: python scripts/data/split_fineweb2.py
+    deps:
+    - path: data/raw/fineweb2
+      hash: md5
+      md5: 94ee716c666db1d24f96b038f247185c.dir
+      size: 6857122432
+      nfiles: 13
+    - path: scripts/data/split_fineweb2.py
+      hash: md5
+      md5: 8e9c1894e0abf9c2476236dbba8a2b0a
+      size: 3073
+    outs:
+    - path: data/splits/fineweb2/kat_Geor
+      hash: md5
+      md5: 69ebe906c9dae717e46d4012c203c96d.dir
+      size: 297228
+      nfiles: 2
