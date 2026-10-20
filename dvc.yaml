@@ -105,3 +105,19 @@ stages:
       - data/interim/tokenizer/bpe_sample
     outs:
       - artifacts/tokenizer/bpe_100k_16384
+
+  encode_corpus:
+    cmd: >-
+      PYTHONPATH=src python scripts/tokenizer/encode_corpus.py
+      --output-dir data/tokenized/kat_Geor
+      --batch-size 256
+      --checkpoint-groups 20
+    deps:
+      - scripts/tokenizer/encode_corpus.py
+      - src/ggpt/utils/logger.py
+      - data/raw/fineweb2
+      - data/splits/fineweb2/kat_Geor
+      - artifacts/tokenizer/bpe_100k_16384
+    outs:
+      - data/tokenized/kat_Geor:
+          persist: true
