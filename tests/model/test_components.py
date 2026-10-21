@@ -85,3 +85,30 @@ def test_rope_cache_recovers_fp32_after_model_half():
     torch.testing.assert_close(cos, before, rtol=0, atol=0)
     assert cos.data_ptr() == rope(6, torch.device('cpu'))[0].data_ptr()
 
+
+def test_rope_cache_created_in_inference_mode_supports_training_backward():
+    from ggpt.model import create_model
+
+    config = ModelConfig(
+        vocab_size=32,
+        hidden_size=16,
+        num_heads=2,
+        intermediate_size=24,
+        num_layers=2,
+        max_seq_len=12,
+    )
+
+    model = create_model(config)
+    tokens = torch.randint(0, config.vocab_size, (2, 7))
+
+    with torch.inference_mode():
+        model(input_ids=tokens)
+
+    assert not model.rope._cos_cached.is_inference()
+    assert not model.rope._sin_cached.is_inference()
+
+    loss = model(input_ids=tokens, targets=tokens).loss
+    loss.backward()
+
+    assert model.token_embeddings.weight.grad is not None
+    assert torch.isfinite(model.token_embeddings.weight.grad).all()
