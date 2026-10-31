@@ -1,0 +1,996 @@
+{
+  "version": 3,
+  "name": "ggpt_georgian_benchmark_v3",
+  "questions": [
+    {
+      "id": "cont_family_letter",
+      "category": "continuation",
+      "format": "free",
+      "prompt": "ძვირფასო მეგობარო, დიდი ხანია შენთვის წერილი არ მომიწერია. დღეს მინდა მოგიყვე, როგორ",
+      "reference": null,
+      "candidates": [],
+      "control_prompt": null,
+      "metadata": {
+        "genre": "letter",
+        "length": "short",
+        "topic_ru": "Письмо другу",
+        "language": "ka",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "cont_mountain_story",
+      "category": "continuation",
+      "format": "free",
+      "prompt": "დილით მთებში უცნაური ხმა გაისმა. ახალგაზრდა მწყემსმა გაიხედა და",
+      "reference": null,
+      "candidates": [],
+      "control_prompt": null,
+      "metadata": {
+        "genre": "fiction",
+        "length": "short",
+        "topic_ru": "Рассказ о пастухе",
+        "language": "ka",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "cont_weather_report",
+      "category": "continuation",
+      "format": "free",
+      "prompt": "ხვალ დასავლეთ საქართველოში მოსალოდნელია ცვალებადი ამინდი. დღის განმავლობაში",
+      "reference": null,
+      "candidates": [],
+      "control_prompt": null,
+      "metadata": {
+        "genre": "weather",
+        "length": "short",
+        "topic_ru": "Прогноз погоды",
+        "language": "ka",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "cont_scientific_water",
+      "category": "continuation",
+      "format": "free",
+      "prompt": "წყალი ბუნებაში სხვადასხვა მდგომარეობაში გვხვდება. ტემპერატურის შემცირებისას",
+      "reference": null,
+      "candidates": [],
+      "control_prompt": null,
+      "metadata": {
+        "genre": "popular_science",
+        "length": "short",
+        "topic_ru": "Научпоп о воде",
+        "language": "ka",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "cont_museum_dialogue",
+      "category": "continuation",
+      "format": "free",
+      "prompt": "— რომელ მუზეუმში მივდივართ დღეს? — ჰკითხა ნინომ მეგობარს. —",
+      "reference": null,
+      "candidates": [],
+      "control_prompt": null,
+      "metadata": {
+        "genre": "dialogue",
+        "length": "short",
+        "topic_ru": "Диалог в музее",
+        "language": "ka",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "cont_recipe",
+      "category": "continuation",
+      "format": "free",
+      "prompt": "ხაჭაპურის მოსამზადებლად ჯერ ცომი უნდა მოვზილოთ. შემდეგ",
+      "reference": null,
+      "candidates": [],
+      "control_prompt": null,
+      "metadata": {
+        "genre": "recipe",
+        "length": "short",
+        "topic_ru": "Кулинарный рецепт",
+        "language": "ka",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "cont_report_school",
+      "category": "continuation",
+      "format": "free",
+      "prompt": "ქალაქის ერთ-ერთ სკოლაში ახალი ბიბლიოთეკა გაიხსნა. ღონისძიებას მოსწავლეები, მასწავლებლები და მშობლები დაესწრნენ. სკოლის დირექტორის განცხადებით,",
+      "reference": null,
+      "candidates": [],
+      "control_prompt": null,
+      "metadata": {
+        "genre": "news",
+        "length": "medium",
+        "topic_ru": "Новость о школе",
+        "language": "ka",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "cont_train_trip",
+      "category": "continuation",
+      "format": "free",
+      "prompt": "დილით მატარებელი თბილისის სადგურიდან დაიძრა. ფანჯრიდან მოჩანდა პატარა სოფლები და მწვანე მინდვრები. მგზავრები გზაზე საუბრობდნენ, ხოლო ერთმა ტურისტმა",
+      "reference": null,
+      "candidates": [],
+      "control_prompt": null,
+      "metadata": {
+        "genre": "travel",
+        "length": "medium",
+        "topic_ru": "Путешествие поездом",
+        "language": "ka",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "cont_history_town",
+      "category": "continuation",
+      "format": "free",
+      "prompt": "ძველი ქალაქის ვიწრო ქუჩებში საუკუნეების განმავლობაში ვაჭრები და ხელოსნები ცხოვრობდნენ. მათი სახლები დღესაც ინახავს წარსულის კვალს. ადგილობრივი ისტორიკოსები აღნიშნავენ, რომ",
+      "reference": null,
+      "candidates": [],
+      "control_prompt": null,
+      "metadata": {
+        "genre": "historical",
+        "length": "medium",
+        "topic_ru": "Исторический очерк",
+        "language": "ka",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "cont_sports_match",
+      "category": "continuation",
+      "format": "free",
+      "prompt": "საფეხბურთო მატჩის ბოლო წუთები განსაკუთრებით დაძაბული აღმოჩნდა. გულშემატკივრები ტრიბუნებიდან საკუთარ გუნდს ამხნევებდნენ. როდესაც მსაჯმა",
+      "reference": null,
+      "candidates": [],
+      "control_prompt": null,
+      "metadata": {
+        "genre": "sports",
+        "length": "medium",
+        "topic_ru": "Спортивный репортаж",
+        "language": "ka",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "cont_eco_park",
+      "category": "continuation",
+      "format": "free",
+      "prompt": "ქალაქის მახლობლად მდებარე პარკში მოხალისეებმა დასუფთავების აქცია ჩაატარეს. მათ პლასტმასის ბოთლები და სხვა ნარჩენები შეაგროვეს. ორგანიზატორების თქმით, შემდეგი ნაბიჯი",
+      "reference": null,
+      "candidates": [],
+      "control_prompt": null,
+      "metadata": {
+        "genre": "environment",
+        "length": "medium",
+        "topic_ru": "Экология и волонтёры",
+        "language": "ka",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "cont_formal_announcement",
+      "category": "continuation",
+      "format": "free",
+      "prompt": "გაცნობებთ, რომ მუნიციპალური ბიბლიოთეკა ორშაბათიდან სამუშაო საათებს ცვლის. მკითხველებს საშუალება ექნებათ წიგნები ახალი განრიგით გაიტანონ. დამატებითი ინფორმაციის მისაღებად",
+      "reference": null,
+      "candidates": [],
+      "control_prompt": null,
+      "metadata": {
+        "genre": "formal",
+        "length": "medium",
+        "topic_ru": "Официальное объявление",
+        "language": "ka",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "cont_medicine_explanation",
+      "category": "continuation",
+      "format": "free",
+      "prompt": "რეგულარული ძილი ადამიანის ჯანმრთელობის ერთ-ერთი მნიშვნელოვანი პირობაა. როდესაც ადამიანი ყოველდღიურად განსხვავებულ დროს იძინებს, მისი დღის რეჟიმი ირღვევა. სპეციალისტები ხშირად გვირჩევენ, საღამოს შევამციროთ ეკრანთან გატარებული დრო და დავიცვათ ერთნაირი განრიგი. ამ რეკომენდაციების მიზანია",
+      "reference": null,
+      "candidates": [],
+      "control_prompt": null,
+      "metadata": {
+        "genre": "health_education",
+        "length": "long",
+        "topic_ru": "Научпоп о сне",
+        "language": "ka",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "cont_detective",
+      "category": "continuation",
+      "format": "free",
+      "prompt": "გამომძიებელი ძველ სახლში საღამოს მივიდა. კარი დაკეტილი იყო, მაგრამ ფანჯარასთან სველი ფეხსაცმლის კვალი ჩანდა. მაგიდაზე იდო წერილი, რომლის ბოლო წინადადება ვიღაცას გადაეხაზა. გამომძიებელმა შენიშნა, რომ საათი გაჩერებულიყო, და გადაწყვიტა",
+      "reference": null,
+      "candidates": [],
+      "control_prompt": null,
+      "metadata": {
+        "genre": "detective",
+        "length": "long",
+        "topic_ru": "Детектив",
+        "language": "ka",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "cont_fairytale",
+      "category": "continuation",
+      "format": "free",
+      "prompt": "ერთ პატარა სოფელში ცხოვრობდა მებაღე, რომელსაც განსაკუთრებით უყვარდა ძველი ხეები. ერთ გაზაფხულს მან ბაღში უცნაური თესლი იპოვა. მეზობლებმა უთხრეს, რომ ამ თესლიდან არაფერი გაიზრდებოდა, მაგრამ მებაღემ მაინც დათესა. რამდენიმე კვირის შემდეგ მიწიდან ამოვიდა",
+      "reference": null,
+      "candidates": [],
+      "control_prompt": null,
+      "metadata": {
+        "genre": "fairytale",
+        "length": "long",
+        "topic_ru": "Сказка",
+        "language": "ka",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "cont_economics",
+      "category": "continuation",
+      "format": "free",
+      "prompt": "ბოლო წლებში მცირე მეწარმეებისთვის ონლაინ ვაჭრობის მნიშვნელობა გაიზარდა. ინტერნეტმაღაზიები მომხმარებლებს საშუალებას აძლევს, პროდუქცია სახლიდან შეუკვეთონ. თუმცა შეკვეთების რაოდენობის ზრდასთან ერთად ბიზნესს ახალი გამოწვევებიც უჩნდება, განსაკუთრებით მიწოდებასა და მომსახურებაში. ამიტომ მეწარმეები ცდილობენ",
+      "reference": null,
+      "candidates": [],
+      "control_prompt": null,
+      "metadata": {
+        "genre": "economics",
+        "length": "long",
+        "topic_ru": "Экономическая аналитика",
+        "language": "ka",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "cont_art_review",
+      "category": "continuation",
+      "format": "free",
+      "prompt": "გამოფენაზე წარმოდგენილი იყო თანამედროვე ქართველი მხატვრების ნამუშევრები. ზოგი ტილო მკვეთრი ფერებით გამოირჩეოდა, სხვებში კი მშვიდი პეიზაჟები ჭარბობდა. დამთვალიერებლები დიდხანს ჩერდებოდნენ იმ სურათთან, რომელზეც ძველი თბილისი იყო გამოსახული. ხელოვნებათმცოდნის შეფასებით,",
+      "reference": null,
+      "candidates": [],
+      "control_prompt": null,
+      "metadata": {
+        "genre": "arts",
+        "length": "long",
+        "topic_ru": "Рецензия на выставку",
+        "language": "ka",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "cont_computer_manual",
+      "category": "continuation",
+      "format": "free",
+      "prompt": "კომპიუტერის უსაფრთხოებისთვის მნიშვნელოვანია სისტემის რეგულარული განახლება. განახლებები ხშირად ასწორებს პროგრამულ შეცდომებს და ამცირებს ცნობილ საფრთხეებს. ასევე რეკომენდებულია მნიშვნელოვანი ფაილების სარეზერვო ასლების შექმნა და ძლიერი პაროლების გამოყენება. თუ მომხმარებელმა საეჭვო შეტყობინება მიიღო, უმჯობესია",
+      "reference": null,
+      "candidates": [],
+      "control_prompt": null,
+      "metadata": {
+        "genre": "technical",
+        "length": "long",
+        "topic_ru": "Техническая инструкция",
+        "language": "ka",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "fact_capital",
+      "category": "facts",
+      "format": "cloze",
+      "prompt": "საქართველოს დედაქალაქია",
+      "reference": " თბილისი",
+      "candidates": [
+        " თბილისი",
+        " ბათუმი",
+        " ქუთაისი",
+        " რუსთავი"
+      ],
+      "control_prompt": null,
+      "metadata": {
+        "topic": "geography",
+        "language": "ka",
+        "fact_stability": "static",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "fact_currency",
+      "category": "facts",
+      "format": "cloze",
+      "prompt": "საქართველოს ეროვნული ვალუტაა",
+      "reference": " ლარი",
+      "candidates": [
+        " ლარი",
+        " დოლარი",
+        " ევრო",
+        " დრამი"
+      ],
+      "control_prompt": null,
+      "metadata": {
+        "topic": "economy",
+        "language": "ka",
+        "fact_stability": "static",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "fact_language",
+      "category": "facts",
+      "format": "cloze",
+      "prompt": "საქართველოს სახელმწიფო ენაა",
+      "reference": " ქართული",
+      "candidates": [
+        " ქართული",
+        " რუსული",
+        " სომხური",
+        " ინგლისური"
+      ],
+      "control_prompt": null,
+      "metadata": {
+        "topic": "language",
+        "language": "ka",
+        "fact_stability": "static",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "fact_sea",
+      "category": "facts",
+      "format": "cloze",
+      "prompt": "საქართველოს დასავლეთ სანაპიროს ესაზღვრება",
+      "reference": " შავი ზღვა",
+      "candidates": [
+        " შავი ზღვა",
+        " კასპიის ზღვა",
+        " ხმელთაშუა ზღვა",
+        " წითელი ზღვა"
+      ],
+      "control_prompt": null,
+      "metadata": {
+        "topic": "geography",
+        "language": "ka",
+        "fact_stability": "static",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "fact_river",
+      "category": "facts",
+      "format": "cloze",
+      "prompt": "თბილისში მიედინება მდინარე",
+      "reference": " მტკვარი",
+      "candidates": [
+        " მტკვარი",
+        " რიონი",
+        " ენგური",
+        " ალაზანი"
+      ],
+      "control_prompt": null,
+      "metadata": {
+        "topic": "geography",
+        "language": "ka",
+        "fact_stability": "static",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "fact_adjara_center",
+      "category": "facts",
+      "format": "cloze",
+      "prompt": "აჭარის ავტონომიური რესპუბლიკის ადმინისტრაციული ცენტრია",
+      "reference": " ბათუმი",
+      "candidates": [
+        " ბათუმი",
+        " ქუთაისი",
+        " ფოთი",
+        " ზუგდიდი"
+      ],
+      "control_prompt": null,
+      "metadata": {
+        "topic": "regions",
+        "language": "ka",
+        "fact_stability": "static",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "fact_imereti_center",
+      "category": "facts",
+      "format": "cloze",
+      "prompt": "იმერეთის მხარის ადმინისტრაციული ცენტრია",
+      "reference": " ქუთაისი",
+      "candidates": [
+        " ქუთაისი",
+        " გორი",
+        " თელავი",
+        " ოზურგეთი"
+      ],
+      "control_prompt": null,
+      "metadata": {
+        "topic": "regions",
+        "language": "ka",
+        "fact_stability": "static",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "fact_kakheti_center",
+      "category": "facts",
+      "format": "cloze",
+      "prompt": "კახეთის მხარის ადმინისტრაციული ცენტრია",
+      "reference": " თელავი",
+      "candidates": [
+        " თელავი",
+        " ზუგდიდი",
+        " ბათუმი",
+        " გორი"
+      ],
+      "control_prompt": null,
+      "metadata": {
+        "topic": "regions",
+        "language": "ka",
+        "fact_stability": "static",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "fact_samegrelo_center",
+      "category": "facts",
+      "format": "cloze",
+      "prompt": "სამეგრელო-ზემო სვანეთის მხარის ადმინისტრაციული ცენტრია",
+      "reference": " ზუგდიდი",
+      "candidates": [
+        " ზუგდიდი",
+        " მესტია",
+        " ფოთი",
+        " ქუთაისი"
+      ],
+      "control_prompt": null,
+      "metadata": {
+        "topic": "regions",
+        "language": "ka",
+        "fact_stability": "static",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "fact_rustaveli",
+      "category": "facts",
+      "format": "cloze",
+      "prompt": "პოემა „ვეფხისტყაოსნის“ ავტორია",
+      "reference": " შოთა რუსთაველი",
+      "candidates": [
+        " შოთა რუსთაველი",
+        " ილია ჭავჭავაძე",
+        " აკაკი წერეთელი",
+        " გალაკტიონ ტაბიძე"
+      ],
+      "control_prompt": null,
+      "metadata": {
+        "topic": "literature",
+        "language": "ka",
+        "fact_stability": "static",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "fact_flag_crosses",
+      "category": "facts",
+      "format": "cloze",
+      "prompt": "საქართველოს სახელმწიფო დროშაზე გამოსახულია",
+      "reference": " ხუთი ჯვარი",
+      "candidates": [
+        " ხუთი ჯვარი",
+        " ერთი ჯვარი",
+        " სამი ვარსკვლავი",
+        " ოთხი ზოლი"
+      ],
+      "control_prompt": null,
+      "metadata": {
+        "topic": "symbols",
+        "language": "ka",
+        "fact_stability": "static",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "fact_borjomi",
+      "category": "facts",
+      "format": "cloze",
+      "prompt": "ბორჯომი განსაკუთრებით ცნობილია",
+      "reference": " მინერალური წყლით",
+      "candidates": [
+        " მინერალური წყლით",
+        " ზღვის სანაპიროთი",
+        " ოქროს საბადოებით",
+        " თოვლის უდაბნოთი"
+      ],
+      "control_prompt": null,
+      "metadata": {
+        "topic": "culture",
+        "language": "ka",
+        "fact_stability": "static",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "fact_narikala",
+      "category": "facts",
+      "format": "cloze",
+      "prompt": "თბილისში მდებარე ცნობილი ისტორიული ციხესიმაგრეა",
+      "reference": " ნარიყალა",
+      "candidates": [
+        " ნარიყალა",
+        " გონიოს ციხე",
+        " ანანურის ციხე",
+        " ხერთვისის ციხე"
+      ],
+      "control_prompt": null,
+      "metadata": {
+        "topic": "history",
+        "language": "ka",
+        "fact_stability": "static",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "fact_shkhara",
+      "category": "facts",
+      "format": "cloze",
+      "prompt": "საქართველოს უმაღლესი მწვერვალია",
+      "reference": " შხარა",
+      "candidates": [
+        " შხარა",
+        " ყაზბეგი",
+        " უშბა",
+        " თეთნულდი"
+      ],
+      "control_prompt": null,
+      "metadata": {
+        "topic": "geography",
+        "language": "ka",
+        "fact_stability": "static",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "fact_alphabet",
+      "category": "facts",
+      "format": "cloze",
+      "prompt": "თანამედროვე ქართულ ანბანში არის",
+      "reference": " 33 ასო",
+      "candidates": [
+        " 33 ასო",
+        " 26 ასო",
+        " 32 ასო",
+        " 40 ასო"
+      ],
+      "control_prompt": null,
+      "metadata": {
+        "topic": "language",
+        "language": "ka",
+        "fact_stability": "static",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "fact_anthem",
+      "category": "facts",
+      "format": "cloze",
+      "prompt": "საქართველოს სახელმწიფო ჰიმნის სახელწოდებაა",
+      "reference": " თავისუფლება",
+      "candidates": [
+        " თავისუფლება",
+        " დიდება",
+        " საქართველო",
+        " მრავალჟამიერი"
+      ],
+      "control_prompt": null,
+      "metadata": {
+        "topic": "symbols",
+        "language": "ka",
+        "fact_stability": "static",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "fact_bread",
+      "category": "facts",
+      "format": "cloze",
+      "prompt": "ტრადიციულ ქართულ ყველიან პურს უწოდებენ",
+      "reference": " ხაჭაპურს",
+      "candidates": [
+        " ხაჭაპურს",
+        " ლობიანს",
+        " მჭადს",
+        " ხინკალს"
+      ],
+      "control_prompt": null,
+      "metadata": {
+        "topic": "food",
+        "language": "ka",
+        "fact_stability": "static",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "fact_sulfur",
+      "category": "facts",
+      "format": "cloze",
+      "prompt": "თბილისის ისტორიული უბანი, რომელიც გოგირდის აბანოებით არის ცნობილი, არის",
+      "reference": " აბანოთუბანი",
+      "candidates": [
+        " აბანოთუბანი",
+        " ვაკე",
+        " საბურთალო",
+        " დიდუბე"
+      ],
+      "control_prompt": null,
+      "metadata": {
+        "topic": "places",
+        "language": "ka",
+        "fact_stability": "static",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "ctx_commute",
+      "category": "context",
+      "format": "cloze",
+      "prompt": "ნინო ცხოვრობს ბათუმში, მაგრამ მუშაობს ქუთაისში. ის ყოველდღე დილით სამსახურში მიდის. დღესაც ავტობუსით გაემგზავრა",
+      "reference": " ქუთაისში",
+      "candidates": [
+        " ქუთაისში",
+        " ბათუმში",
+        " თბილისში",
+        " ფოთში"
+      ],
+      "control_prompt": "ის ყოველდღე დილით სამსახურში მიდის. დღესაც ავტობუსით გაემგზავრა",
+      "metadata": {
+        "skill": "entity_location",
+        "language": "ka",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "ctx_package",
+      "category": "context",
+      "format": "cloze",
+      "prompt": "ლევანმა წითელ ყუთში ჩადო წიგნი, ხოლო ლურჯ ყუთში — გასაღები. შემდეგ მას გასაღები დასჭირდა. მან გახსნა",
+      "reference": " ლურჯი ყუთი",
+      "candidates": [
+        " ლურჯი ყუთი",
+        " წითელი ყუთი",
+        " მწვანე ყუთი",
+        " თეთრი ყუთი"
+      ],
+      "control_prompt": "ლევანმა ნივთები ორ ყუთში შეინახა. შემდეგ მას გასაღები დასჭირდა. მან გახსნა",
+      "metadata": {
+        "skill": "object_tracking",
+        "language": "ka",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "ctx_favorite",
+      "category": "context",
+      "format": "cloze",
+      "prompt": "მარიამს უყვარს მწვანე ჩაი, მის ძმას კი შავი ჩაი. სტუმარმა მარიამისთვის სასმელი მოამზადა. მან აადუღა წყალი და მოამზადა",
+      "reference": " მწვანე ჩაი",
+      "candidates": [
+        " მწვანე ჩაი",
+        " შავი ჩაი",
+        " ყავა",
+        " კაკაო"
+      ],
+      "control_prompt": "სტუმარმა მარიამისთვის სასმელი მოამზადა. მან აადუღა წყალი და მოამზადა",
+      "metadata": {
+        "skill": "attribute_binding",
+        "language": "ka",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "ctx_school",
+      "category": "context",
+      "format": "cloze",
+      "prompt": "დათო სწავლობს სკოლა ნომერ 18-ში, მისი მეგობარი კი სკოლა ნომერ 27-ში. დღეს დათო საკუთარ სკოლაში მიდის. დათოს სკოლის ნომერია",
+      "reference": " 18",
+      "candidates": [
+        " 18",
+        " 27",
+        " 12",
+        " 30"
+      ],
+      "control_prompt": "დღეს დათო საკუთარ სკოლაში მიდის. დათოს სკოლის ნომერია",
+      "metadata": {
+        "skill": "numeric_binding",
+        "language": "ka",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "ctx_meeting_day",
+      "category": "context",
+      "format": "cloze",
+      "prompt": "შეხვედრა თავიდან სამშაბათს იყო დაგეგმილი, მაგრამ შემდეგ ხუთშაბათზე გადაიტანეს. საბოლოოდ შეხვედრა გაიმართება",
+      "reference": " ხუთშაბათს",
+      "candidates": [
+        " ხუთშაბათს",
+        " სამშაბათს",
+        " ორშაბათს",
+        " კვირას"
+      ],
+      "control_prompt": "შეხვედრის თარიღი შეცვალეს. საბოლოოდ შეხვედრა გაიმართება",
+      "metadata": {
+        "skill": "update_tracking",
+        "language": "ka",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "ctx_blue_book",
+      "category": "context",
+      "format": "cloze",
+      "prompt": "ანა მაგიდაზე დადებულ ორ წიგნს არჩევდა. ისტორიის წიგნი ლურჯი იყო, მათემატიკისა — ყვითელი. ანამ ისტორიის წიგნი აიღო. ამ წიგნის ყდა იყო",
+      "reference": " ლურჯი",
+      "candidates": [
+        " ლურჯი",
+        " ყვითელი",
+        " მწვანე",
+        " წითელი"
+      ],
+      "control_prompt": "ანამ მაგიდიდან ისტორიის წიგნი აიღო. ამ წიგნის ყდა იყო",
+      "metadata": {
+        "skill": "attribute_binding",
+        "language": "ka",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "ctx_weather_city",
+      "category": "context",
+      "format": "cloze",
+      "prompt": "დღეს გორში თოვს, ხოლო ფოთში წვიმს. რეზო ფოთში იმყოფება და ქუჩაში გავიდა. მისი ქალაქის ამინდია",
+      "reference": " წვიმა",
+      "candidates": [
+        " წვიმა",
+        " თოვლი",
+        " ნისლი",
+        " სეტყვა"
+      ],
+      "control_prompt": "რეზო ფოთში იმყოფება და ქუჩაში გავიდა. მისი ქალაქის ამინდია",
+      "metadata": {
+        "skill": "two_entity_resolution",
+        "language": "ka",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "ctx_trip_destination",
+      "category": "context",
+      "format": "cloze",
+      "prompt": "მოგზაურები თავდაპირველად თელავში აპირებდნენ წასვლას, მაგრამ საბოლოოდ სიღნაღი აირჩიეს. ისინი მანქანით გაემგზავრნენ",
+      "reference": " სიღნაღში",
+      "candidates": [
+        " სიღნაღში",
+        " თელავში",
+        " ახალციხეში",
+        " რუსთავში"
+      ],
+      "control_prompt": "მოგზაურებმა საბოლოო დანიშნულება აირჩიეს. ისინი მანქანით გაემგზავრნენ",
+      "metadata": {
+        "skill": "update_tracking",
+        "language": "ka",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "ctx_pet_name",
+      "category": "context",
+      "format": "cloze",
+      "prompt": "თამარის ძაღლს ბუბუ ჰქვია, ხოლო კატის სახელია ციცო. ეზოში თამარმა ძაღლს დაუძახა. მან ხმამაღლა თქვა",
+      "reference": " ბუბუ",
+      "candidates": [
+        " ბუბუ",
+        " ციცო",
+        " მურა",
+        " ლაქა"
+      ],
+      "control_prompt": "ეზოში თამარმა ძაღლს დაუძახა. მან ხმამაღლა თქვა",
+      "metadata": {
+        "skill": "entity_name",
+        "language": "ka",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "ctx_purchase",
+      "category": "context",
+      "format": "cloze",
+      "prompt": "გიორგის სამი ვაშლი და ორი მსხალი ჰქონდა. მან ყველა ვაშლი მეგობარს მისცა, მსხალი კი თავისთვის დატოვა. გიორგის დარჩა",
+      "reference": " ორი მსხალი",
+      "candidates": [
+        " ორი მსხალი",
+        " სამი ვაშლი",
+        " ხუთი ვაშლი",
+        " ერთი ბანანი"
+      ],
+      "control_prompt": "გიორგიმ ხილის ნაწილი მეგობარს მისცა, ნაწილი კი თავისთვის დატოვა. გიორგის დარჩა",
+      "metadata": {
+        "skill": "state_tracking",
+        "language": "ka",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "ctx_bus_number",
+      "category": "context",
+      "format": "cloze",
+      "prompt": "უნივერსიტეტისკენ მიდის ავტობუსი ნომერი 42, ხოლო საავადმყოფოსკენ — ნომერი 16. სალომეს უნივერსიტეტში უნდა მისვლა. ის გაჩერებაზე ელოდება ავტობუსს ნომერი",
+      "reference": " 42",
+      "candidates": [
+        " 42",
+        " 16",
+        " 18",
+        " 24"
+      ],
+      "control_prompt": "სალომეს უნივერსიტეტში უნდა მისვლა. ის გაჩერებაზე ელოდება ავტობუსს ნომერი",
+      "metadata": {
+        "skill": "mapping",
+        "language": "ka",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "ctx_flower",
+      "category": "context",
+      "format": "cloze",
+      "prompt": "ეზოში ორი ყვავილი იზრდებოდა: ერთი თეთრი ვარდი და ერთი წითელი ტიტა. ბავშვს ტიტა უნდოდა და ფრთხილად მოწყვიტა",
+      "reference": " წითელი ტიტა",
+      "candidates": [
+        " წითელი ტიტა",
+        " თეთრი ვარდი",
+        " ყვითელი გვირილა",
+        " ლურჯი ია"
+      ],
+      "control_prompt": "ეზოში რამდენიმე ყვავილი იზრდებოდა. ბავშვს ტიტა უნდოდა და ფრთხილად მოწყვიტა",
+      "metadata": {
+        "skill": "attribute_binding",
+        "language": "ka",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "ctx_qa_home",
+      "category": "context",
+      "format": "qa",
+      "prompt": "ირაკლი ცხოვრობს ბათუმში, მაგრამ მუშაობს ქობულეთში.\nკითხვა: რომელ ქალაქში ცხოვრობს ირაკლი?\nპასუხი:",
+      "reference": " ბათუმში",
+      "candidates": [
+        " ბათუმში",
+        " ქობულეთში",
+        " თბილისში",
+        " ქუთაისში"
+      ],
+      "control_prompt": "კითხვა: რომელ ქალაქში ცხოვრობს ირაკლი?\nპასუხი:",
+      "metadata": {
+        "skill": "entity_location",
+        "language": "ka",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "ctx_qa_scarf",
+      "category": "context",
+      "format": "qa",
+      "prompt": "ქეთევანმა ყვითელი შარფი იყიდა, ხოლო თინამ — თეთრი.\nკითხვა: რა ფერის შარფი იყიდა ქეთევანმა?\nპასუხი:",
+      "reference": " ყვითელი",
+      "candidates": [
+        " ყვითელი",
+        " თეთრი",
+        " შავი",
+        " მწვანე"
+      ],
+      "control_prompt": "კითხვა: რა ფერის შარფი იყიდა ქეთევანმა?\nპასუხი:",
+      "metadata": {
+        "skill": "attribute_binding",
+        "language": "ka",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "ctx_qa_door",
+      "category": "context",
+      "format": "qa",
+      "prompt": "გიორგიმ სახლის გასაღები სამზარეულოს მაგიდაზე დატოვა.\nკითხვა: სად დატოვა გიორგიმ გასაღები?\nპასუხი:",
+      "reference": " სამზარეულოს მაგიდაზე",
+      "candidates": [
+        " სამზარეულოს მაგიდაზე",
+        " საძინებელში",
+        " კართან",
+        " ჩანთაში"
+      ],
+      "control_prompt": "კითხვა: სად დატოვა გიორგიმ გასაღები?\nპასუხი:",
+      "metadata": {
+        "skill": "entity_location",
+        "language": "ka",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "ctx_qa_time",
+      "category": "context",
+      "format": "qa",
+      "prompt": "მატარებელი თბილისის სადგურიდან დილის რვა საათზე გავიდა, ხოლო ცხრა საათზე უკვე გზაში იყო.\nკითხვა: რომელ საათზე გავიდა მატარებელი?\nპასუხი:",
+      "reference": " რვა საათზე",
+      "candidates": [
+        " რვა საათზე",
+        " ცხრა საათზე",
+        " შვიდ საათზე",
+        " ათ საათზე"
+      ],
+      "control_prompt": "კითხვა: რომელ საათზე გავიდა მატარებელი?\nპასუხი:",
+      "metadata": {
+        "skill": "time_resolution",
+        "language": "ka",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "ctx_qa_book",
+      "category": "context",
+      "format": "qa",
+      "prompt": "ნიკამ ბიბლიოთეკიდან ასტრონომიის წიგნი გამოიტანა, ხოლო მისი მეგობარი ისტორიის წიგნს კითხულობდა.\nკითხვა: რა თემაზე იყო ნიკას წიგნი?\nპასუხი:",
+      "reference": " ასტრონომიის",
+      "candidates": [
+        " ასტრონომიის",
+        " ისტორიის",
+        " გეოგრაფიის",
+        " ბიოლოგიის"
+      ],
+      "control_prompt": "კითხვა: რა თემაზე იყო ნიკას წიგნი?\nპასუხი:",
+      "metadata": {
+        "skill": "two_entity_resolution",
+        "language": "ka",
+        "origin": "authored_for_ggpt_v3"
+      }
+    },
+    {
+      "id": "ctx_qa_count",
+      "category": "context",
+      "format": "qa",
+      "prompt": "კალათაში ოთხი ფორთოხალი და ორი ვაშლი იყო.\nკითხვა: რამდენი ფორთოხალი იყო კალათაში?\nპასუხი:",
+      "reference": " ოთხი",
+      "candidates": [
+        " ოთხი",
+        " ორი",
+        " სამი",
+        " ხუთი"
+      ],
+      "control_prompt": "კითხვა: რამდენი ფორთოხალი იყო კალათაში?\nპასუხი:",
+      "metadata": {
+        "skill": "numeric_binding",
+        "language": "ka",
+        "origin": "authored_for_ggpt_v3"
+      }
+    }
+  ]
+}

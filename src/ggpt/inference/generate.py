@@ -12,6 +12,7 @@ class GenerationConfig:
     do_sample: bool = False
     temperature: float = 1.0
     top_k: int | None = None
+    top_p: float | None = None
     seed: int = 42
 
     def __post_init__(self) -> None:
@@ -25,6 +26,9 @@ class GenerationConfig:
             raise ValueError("temperature must be positive; use do_sample=False for greedy")
         if self.top_k is not None and (type(self.top_k) is not int or self.top_k <= 0):
             raise ValueError("top_k must be a positive integer or None")
+        if self.top_p is not None and (type(self.top_p) not in (float, int)
+                                       or not math.isfinite(self.top_p) or not 0 < self.top_p <= 1):
+            raise ValueError("top_p must lie in (0, 1]")
         if type(self.seed) is not int or not 0 <= self.seed < 2**63:
             raise ValueError("seed must be in [0, 2**63)")
 
@@ -70,14 +74,21 @@ def generate(model: nn.Module, input_ids: Tensor,
                 if not bool(torch.isfinite(scores).all()):
                     raise ValueError("model returned nonfinite logits")
                 if config.do_sample:
-                    # Subtract maximum before temperature scaling for stability.
+                    # Temperature and filters apply to sampling only, never scoring.
                     scores = (scores - scores.max(dim=-1, keepdim=True).values) / config.temperature
                     if config.top_k is not None:
-                        values, indices = scores.topk(min(config.top_k, scores.shape[-1]), dim=-1)
-                        sampled = torch.multinomial(values.softmax(-1), 1, generator=generator)
-                        chosen = indices.gather(-1, sampled).squeeze(-1)
-                    else:
-                        chosen = torch.multinomial(scores.softmax(-1), 1, generator=generator).squeeze(-1)
+                        kth = scores.topk(min(config.top_k, scores.shape[-1]), dim=-1).values[:, -1:]
+                        scores = scores.masked_fill(scores < kth, float("-inf"))
+                    if config.top_p is not None and config.top_p < 1:
+                        sorted_scores, sorted_ids = scores.sort(dim=-1, descending=True)
+                        cumprobs = sorted_scores.softmax(-1).cumsum(-1)
+                        cut = cumprobs - sorted_scores.softmax(-1) >= config.top_p
+                        cut[:, 0] = False
+                        sorted_scores = sorted_scores.masked_fill(cut, float("-inf"))
+                        scores = torch.full_like(scores, float("-inf")).scatter(
+                            dim=-1, index=sorted_ids, src=sorted_scores
+                        )
+                    chosen = torch.multinomial(scores.softmax(-1), 1, generator=generator).squeeze(-1)
                 else:
                     chosen = scores.argmax(dim=-1)
                 next_ids = torch.full((batch,), model_config.pad_token_id,
