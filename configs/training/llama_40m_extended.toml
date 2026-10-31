@@ -1,0 +1,57 @@
+[run]
+name = "llama_40m_extended_v1"
+runs_dir = "runs/ggpt"
+
+[model]
+model_type = "llama"
+vocab_size = 16384
+num_layers = 10
+hidden_size = 512
+num_heads = 8
+intermediate_size = 1376
+max_seq_len = 512
+rope_theta = 10000.0
+dropout = 0.0
+rms_norm_eps = 1e-6
+initializer_range = 0.02
+bos_token_id = 0
+eos_token_id = 1
+pad_token_id = 2
+
+[data]
+train_path = "data/tokenized/kat_Geor/train.bin"
+val_path = "data/tokenized/kat_Geor/val.bin"
+tokenizer_path = "artifacts/tokenizer/bpe_100k_16384/tokenizer.json"
+train_windows = 10000
+validation_windows = 256
+num_workers = 0
+
+[training]
+additional_steps = 140000
+micro_batch_size = 4
+accumulation_steps = 4
+precision = "bf16"
+device = "cuda"
+seed = 42
+grad_clip = 1.0
+
+[optimizer]
+name = "adamw"
+learning_rate = 0.0002
+weight_decay = 0.1
+beta1 = 0.9
+beta2 = 0.95
+eps = 1e-8
+
+[scheduler]
+name = "continuation_cosine"
+ramp_steps = 1000
+peak_lr = 0.00006
+final_lr = 0.00001
+
+[monitoring]
+log_every = 20
+eval_every = 500
+checkpoint_every = 1000
+generate_every = 1000
+generation_max_tokens = 64

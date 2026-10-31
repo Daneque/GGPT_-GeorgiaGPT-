@@ -1,11 +1,42 @@
 """Append-only JSONL and TensorBoard metrics for long training runs."""
 
 from datetime import datetime, timezone
+import os
+import uuid
 import json
 from pathlib import Path
 from typing import Any
 
 from ggpt.utils.logger import get_logger
+
+
+def reconcile_metrics_on_resume(path: Path, resume_step: int) -> int:
+    """Drop superseded JSONL events after checkpoint rollback, atomically.
+
+    TensorBoard handles the equivalent via SummaryWriter(purge_step=...).
+    This prevents duplicate future-step metrics from corrupting later analysis.
+    """
+    if not path.exists():
+        return 0
+    tmp = path.with_name(f".{path.name}.{uuid.uuid4().hex}.tmp")
+    removed = 0
+    try:
+        with path.open("r", encoding="utf-8") as inp, tmp.open("w", encoding="utf-8") as out:
+            for line in inp:
+                if not line.strip():
+                    continue
+                entry = json.loads(line)
+                step = entry.get("step")
+                if type(step) is int and step > resume_step:
+                    removed += 1
+                else:
+                    out.write(line)
+            out.flush()
+            os.fsync(out.fileno())
+        os.replace(tmp, path)
+    finally:
+        tmp.unlink(missing_ok=True)
+    return removed
 
 
 class TrainingLogger:
@@ -14,7 +45,10 @@ class TrainingLogger:
         self.logger = get_logger("training")
         self.run_dir = Path(run_dir)
         self.run_dir.mkdir(parents=True, exist_ok=True)
-        self.stream = (self.run_dir / "metrics.jsonl").open("a", encoding="utf-8", buffering=1)
+        metrics_path = self.run_dir / "metrics.jsonl"
+        if resume_step is not None:
+            reconcile_metrics_on_resume(metrics_path, resume_step)
+        self.stream = metrics_path.open("a", encoding="utf-8", buffering=1)
         if writer is None:
             try:
                 from torch.utils.tensorboard import SummaryWriter

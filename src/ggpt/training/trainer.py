@@ -40,6 +40,11 @@ class TrainerConfig:
     grad_clip: float = 1.0
     warmup_steps: int = 400
     min_lr_ratio: float = 0.1
+    continuation_from: int = 0
+    continuation_start_ratio: float | None = None
+    continuation_ramp_steps: int = 1000
+    continuation_peak_ratio: float = 0.3
+    continuation_final_ratio: float = 0.05
     log_every: int = 20
     eval_every: int = 500
     checkpoint_every: int = 1000
@@ -60,6 +65,18 @@ class TrainerConfig:
             raise ValueError("train_windows must be at least micro_batch_size")
         if not 0 <= self.min_lr_ratio <= 1 or not math.isfinite(self.min_lr_ratio):
             raise ValueError("min_lr_ratio must be finite in [0, 1]")
+        if self.continuation_from:
+            if not 0 < self.continuation_from < self.max_steps:
+                raise ValueError("Invalid continuation_from")
+            if not (0 < self.continuation_ramp_steps <
+                    self.max_steps - self.continuation_from):
+                raise ValueError("Invalid continuation_ramp_steps")
+            starting_ratio = (self.min_lr_ratio if self.continuation_start_ratio is None
+                              else self.continuation_start_ratio)
+            if not (math.isfinite(starting_ratio) and
+                    0 <= self.continuation_final_ratio <= starting_ratio
+                    <= self.continuation_peak_ratio <= 1):
+                raise ValueError("Invalid continuation learning-rate ratios")
         StepConfig(self.accumulation_steps, self.grad_clip, self.precision)
         LoaderConfig(context_length=512, batch_size=self.micro_batch_size,
                      train_windows=self.train_windows,
@@ -120,6 +137,28 @@ def _generate_samples(model: torch.nn.Module, tokenizer_path: Path,
                          generation_config=asdict(options))
 
 
+def build_run_spec(*, config: TrainerConfig, model_config: ModelConfig,
+                   optimizer_config: OptimizerConfig, train_path: str | Path,
+                   val_path: str | Path, tokenizer_path: str | Path) -> dict[str, Any]:
+    """Canonical v1 run spec, also used to prepare a continuation safely."""
+    trainer_spec = asdict(config)
+    if config.continuation_start_ratio is None:
+        trainer_spec.pop("continuation_start_ratio")  # Old checkpoints lack this field.
+    if not config.continuation_from:
+        for key in ("continuation_from", "continuation_ramp_steps",
+                    "continuation_peak_ratio", "continuation_final_ratio"):
+            trainer_spec.pop(key)
+    spec = {
+        "model": model_config.to_dict(),
+        "optimizer": asdict(optimizer_config),
+        "trainer": trainer_spec,
+        "train": _file_identity(Path(train_path).resolve()),
+        "validation": _file_identity(Path(val_path).resolve()),
+        "tokenizer": _file_identity(Path(tokenizer_path).resolve(), hash_file=True),
+    }
+    return json.loads(json.dumps(spec, ensure_ascii=False))
+
+
 def run_training(*, run_dir: str | Path, train_path: str | Path,
                  val_path: str | Path, tokenizer_path: str | Path,
                  model_config: ModelConfig | None = None,
@@ -150,16 +189,10 @@ def run_training(*, run_dir: str | Path, train_path: str | Path,
     ckpt_dir = run_dir / "checkpoints"
     latest_path, best_path = ckpt_dir / "latest.pt", ckpt_dir / "best.pt"
     spec_path = run_dir / "run_spec.json"
-    run_spec = {
-        "model": model_config.to_dict(),
-        "optimizer": asdict(optimizer_config),
-        "trainer": asdict(config),
-        "train": _file_identity(train_path),
-        "validation": _file_identity(val_path),
-        "tokenizer": _file_identity(tokenizer_path, hash_file=True),
-    }
-    # Match JSON and checkpoint representations (e.g. optimizer betas tuples).
-    run_spec = json.loads(json.dumps(run_spec, ensure_ascii=False))
+    run_spec = build_run_spec(
+        config=config, model_config=model_config, optimizer_config=optimizer_config,
+        train_path=train_path, val_path=val_path, tokenizer_path=tokenizer_path,
+    )
     if resume:
         if not spec_path.exists() or not latest_path.is_file():
             raise FileNotFoundError("--resume requires run_spec.json and checkpoints/latest.pt")
@@ -182,7 +215,12 @@ def run_training(*, run_dir: str | Path, train_path: str | Path,
     optimizer = create_optimizer(model, optimizer_config)
     scheduler = create_scheduler(optimizer, total_steps=config.max_steps,
                                  warmup_steps=config.warmup_steps,
-                                 min_lr_ratio=config.min_lr_ratio)
+                                 min_lr_ratio=config.min_lr_ratio,
+                                 continuation_from=config.continuation_from,
+                                 continuation_start_ratio=config.continuation_start_ratio,
+                                 continuation_ramp_steps=config.continuation_ramp_steps,
+                                 continuation_peak_ratio=config.continuation_peak_ratio,
+                                 continuation_final_ratio=config.continuation_final_ratio)
     step_cfg = StepConfig(config.accumulation_steps, config.grad_clip, config.precision)
     progress: dict[str, Any] = {"step": 0, "tokens_seen": 0, "epoch": 0,
                                  "next_batch": 0, "best_val_loss": math.inf}
