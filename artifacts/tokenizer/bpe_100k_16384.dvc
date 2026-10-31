@@ -1,0 +1,6 @@
+outs:
+- md5: 9a738bc73d88f509b9b264f9992e2f03.dir
+  size: 2006711
+  nfiles: 2
+  hash: md5
+  path: bpe_100k_16384
