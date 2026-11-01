@@ -1,0 +1,25 @@
+{
+  "format": "ggpt-inference-v1",
+  "model": {
+    "model_type": "llama",
+    "vocab_size": 16384,
+    "num_layers": 12,
+    "hidden_size": 512,
+    "num_heads": 8,
+    "intermediate_size": 1536,
+    "max_seq_len": 512,
+    "rope_theta": 10000.0,
+    "dropout": 0.0,
+    "rms_norm_eps": 1e-06,
+    "initializer_range": 0.02,
+    "bos_token_id": 0,
+    "eos_token_id": 1,
+    "pad_token_id": 2
+  },
+  "step": 300000,
+  "source_checkpoint": "latest",
+  "files": {
+    "model.pt": "8ac777cf2a7ec9e21311f82c7b2f026418ead1a6340545947a2cdf529b048ebb",
+    "tokenizer.json": "e1c6e42a27dcc73314d2515d1c66e4af9958bf00a62632660fecfa7992b68fc2"
+  }
+}
