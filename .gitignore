@@ -70,3 +70,6 @@ hf_cache/
 /docs/
 
 /notebooks/03_model_smoke_test.ipynb
+# Local notebook backups
+notebooks/*.ipynb.bak
+notebooks/*_before_v*.ipynb

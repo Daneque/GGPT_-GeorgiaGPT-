@@ -1,0 +1,66 @@
+{
+  "model": {
+    "model_type": "llama",
+    "vocab_size": 16384,
+    "num_layers": 12,
+    "hidden_size": 512,
+    "num_heads": 8,
+    "intermediate_size": 1536,
+    "max_seq_len": 512,
+    "rope_theta": 10000.0,
+    "dropout": 0.0,
+    "rms_norm_eps": 1e-06,
+    "initializer_range": 0.02,
+    "bos_token_id": 0,
+    "eos_token_id": 1,
+    "pad_token_id": 2
+  },
+  "optimizer": {
+    "learning_rate": 0.0002,
+    "weight_decay": 0.1,
+    "betas": [
+      0.9,
+      0.95
+    ],
+    "eps": 1e-08,
+    "fused": null
+  },
+  "trainer": {
+    "max_steps": 400000,
+    "micro_batch_size": 4,
+    "accumulation_steps": 4,
+    "train_windows": 10000,
+    "validation_windows": 256,
+    "num_workers": 0,
+    "seed": 42,
+    "precision": "bf16",
+    "grad_clip": 1.0,
+    "warmup_steps": 400,
+    "min_lr_ratio": 0.1,
+    "continuation_from": 300000,
+    "continuation_start_ratio": 0.025,
+    "continuation_ramp_steps": 1,
+    "continuation_peak_ratio": 0.025,
+    "continuation_final_ratio": 0.0125,
+    "log_every": 20,
+    "eval_every": 500,
+    "checkpoint_every": 1000,
+    "generate_every": 1000,
+    "generation_max_tokens": 64
+  },
+  "train": {
+    "path": "/home/daneque/projects/GGPT/data/tokenized/kat_Geor/train.bin",
+    "bytes": 4741213394,
+    "edges_sha256": "692b921375e8bd15ac514118fdd62a04c2a3a44f55010ca47c309ea6914c79d9"
+  },
+  "validation": {
+    "path": "/home/daneque/projects/GGPT/data/tokenized/kat_Geor/val.bin",
+    "bytes": 48410580,
+    "edges_sha256": "a573db03f60d17bfb3ad90ad792b57166271e27ba4b36400ff2617d838261354"
+  },
+  "tokenizer": {
+    "path": "/home/daneque/projects/GGPT/artifacts/tokenizer/bpe_100k_16384/tokenizer.json",
+    "bytes": 2006097,
+    "sha256": "e1c6e42a27dcc73314d2515d1c66e4af9958bf00a62632660fecfa7992b68fc2"
+  }
+}
